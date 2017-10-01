@@ -3,7 +3,7 @@ import {Table, Column, Model, HasMany, CreatedAt, UpdatedAt} from 'sequelize-typ
 @Table
 export default class Score extends Model<Score> {
 
-    @Column
+    @Column({primaryKey: true})
     public id: number;
 
     @Column
