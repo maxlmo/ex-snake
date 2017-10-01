@@ -14,7 +14,9 @@ import { Sequelize } from 'sequelize-typescript';
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
-dotenv.config({ path: '.env.snake' });
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: '.env.snake' });
+}
 
 /**
  * Controllers (route handlers).
@@ -59,6 +61,7 @@ app.use((req, res, next) => {
  */
 app.get('/', homeController.index);
 app.get('/scores', scoreController.all);
+app.post('/scores', scoreController.add);
 
 app.use(errorHandler());
 
