@@ -9,11 +9,12 @@ import * as logger from 'morgan';
 import * as errorHandler from 'errorhandler';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
+import * as bluebird from 'bluebird';
+const Sequelize = require('sequelize');
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
 dotenv.config({ path: '.env.example' });
-
 
 /**
  * Controllers (route handlers).
@@ -25,6 +26,24 @@ import * as homeController from './controllers/home';
  */
 const app = express();
 
+
+// Or you can simply use a connection uri
+const sequelize = new Sequelize('postgres://postgres:pw@localhost:5432/snake');
+// sequelize
+//   .authenticate()
+//   .then(() => { console.log('Connection has been established successfully.'); })
+//   .catch((err: any) => { console.error('Unable to connect to the database:', err); });
+
+const Score = sequelize.define('scores', {
+  name:  { type: Sequelize.STRING },
+  score: { type: Sequelize.INTEGER }
+});
+// Score.findAll().then(
+//   (s: any) => {
+//     console.log(s);
+//   }, (err: any) => console.error(err))
+//   .catch((err: any) => console.error(err));
+Score.sync({fore: true}).then(() => Score.create({name: 'max', score: 120}));
 
 /**
  * Express configuration.
