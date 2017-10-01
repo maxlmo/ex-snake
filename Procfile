@@ -1,1 +1,1 @@
-web: ./node_modules/.bin/tsc --module commonjs --outDir dist/ --noImplicitAny --sourceMap --target ES6 src/**.* && node dist/server.js
+web: ./node_modules/.bin/tsc -p tsconfig.json && node dist/server.js
