@@ -9,3 +9,7 @@ export let all = (req: Request, res: Response) => {
     }
   );
 };
+
+export let add = (req: Request, res: Response) => {
+    res.status(200).send('done');
+};
