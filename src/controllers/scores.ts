@@ -12,7 +12,7 @@ export let all = (req: Request, res: Response) => {
 
 export let add = (req: Request, res: Response) => {
   const body = req.body as Score;
-  const score = new Score({id: body.id, name: body.name, score: body.score });
+  const score = new Score({name: body.name, score: body.score });
   score.save().then(
     () => res.status(201).send(JSON.stringify(score))
   );
