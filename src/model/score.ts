@@ -4,6 +4,9 @@ import {Table, Column, Model, HasMany, CreatedAt, UpdatedAt} from 'sequelize-typ
 export default class Score extends Model<Score> {
 
     @Column
+    public id: number;
+
+    @Column
     public name: string;
 
     @Column
