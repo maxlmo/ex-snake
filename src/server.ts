@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
 /**
  * Controllers (route handlers).
  */
-import * as homeController from './controllers/home';
+import { HomeController } from './controllers/home';
 import * as scoreController from './controllers/scores';
 import Score from './model/score';
 
@@ -60,6 +60,7 @@ app.use(function(req, res, next) {
 /**
  * Primary app routes.
  */
+const homeController = new HomeController();
 app.get('/', homeController.index);
 app.get('/scores', scoreController.all);
 app.post('/scores', scoreController.add);
