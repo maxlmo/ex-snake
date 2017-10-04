@@ -1,0 +1,8 @@
+CREATE TABLE "Score"
+(
+  id integer primary key autoincrement,
+  name character varying,
+  score character varying,
+  "createdAt" date,
+  "updatedAt" date
+)

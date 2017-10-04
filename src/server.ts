@@ -1,3 +1,4 @@
+import { Database } from './database';
 /**
  * Module dependencies.
  */
@@ -30,14 +31,8 @@ import Score from './model/score';
  */
 const app = express();
 
-const sequelize =  new Sequelize({
-  host: process.env.POSTGRESQL_HOST,
-  database: process.env.POSTGRESQL_DATABASE,
-  dialect: 'postgres',
-  username: process.env.POSTGRESQL_USER,
-  password: process.env.POSTGRESQL_PASSWORD,
-  modelPaths: [__dirname + '/model']
-});
+const database = new Database();
+database.init();
 
 /**
  * Express configuration.
