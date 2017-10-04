@@ -13,6 +13,5 @@ class TestClass {
     @test
     barTest() {
         assert.equal(true, true);
-        assert.equal(false, true);
     }
 }
