@@ -67,9 +67,7 @@
     "sequelize": "^3.30.4",
     "sequelize-typescript": "^0.5.0",
     "sqlite3": "^3.1.13",
-    "typescript": "^2.4.0"
-  },
-  "devDependencies": {
+    "typescript": "^2.4.0",
     "@types/async": "^2.0.40",
     "@types/bcrypt-nodejs": "0.0.30",
     "@types/body-parser": "^1.16.2",
